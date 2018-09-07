@@ -1,15 +1,15 @@
-WTF no-framework PHP MVC
-========================
+# WTF is a "no-framework PHP MVC"?
 
-Code taken from [27.02.2006 "The no-framework PHP MVC framework" by
+Essential code taken from [27.02.2006 "The no-framework PHP MVC framework" by
 Rasmus Lerdorf](https://toys.lerdorf.com/archives/38-The-no-framework-PHP-MVC-framework.html)
 
 I could not find this code besides author's page and having difficulty evaluating
-author's design decision decided to re-create it in a runnable form to study that.
+author's design decision decided to assemble it in a runnable form to study that.
 
 Had to add categories.txt, 'items' table creation with correct schema
-and yui-0.11.3 ([Aug. 2006](https://yuiblog.com/blog/2006/08/28/yui-release-113))
-files (2.9.0 also worked but I could not find a reason to keep them)
+and [yui](https://en.wikipedia.org/wiki/YUI_Library)-0.11.3
+([Aug. 2006](https://yuiblog.com/blog/2006/08/28/yui-release-113)) files
+(2.9.0 also worked but I could not find a reason to keep them)
 
 Use these yui/ files **only** inside a temporary sandbox!
 
