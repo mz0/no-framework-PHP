@@ -13,11 +13,11 @@ and [yui](https://en.wikipedia.org/wiki/YUI_Library)-0.11.3
 
 Use these yui/ files **only** inside a temporary sandbox!
 
-This PoC works by some definition of "work" but its UX is creepy and [just
+This PoC works by some definition of "work" but its UX is creepy and use of a [just
 released](https://yuiblog.com/blog/2006/02/13/the-yahoo-user-interface-library)
-YUI use seems neither justified nor professional.
+YUI seems neither justified nor professional.
 
 The missing 'ctime' field [WTF](https://github.com/mz0/no-framework-PHP/blob/master/model/items.inc#L8)
-(missing in author's listing) is a perfect example of unrelible (and for this reason undesirable) code comments.
+(missing in author's listing) is a perfect example of misleading (and for this reason undesirable) code comments.
 
-Note: had to *apt install --no-install-recommends php-apcu php5.6-sqlite3* to my Ubuntu PHP setup.
+Note: had to *apt install --no-install-recommends php-apcu php5.6-sqlite3* to complement my Ubuntu PHP setup. Again APC use seems [unjustified and plain ugly](https://github.com/mz0/no-framework-PHP/blob/23e0723e29c234baaf0d0cf70872876c0fc0f361/model/db.inc#L23). (Note also, that the last APC release was on [2012-09-03](http://pecl.php.net/package/APC) ). 
