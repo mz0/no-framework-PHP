@@ -1,18 +1,9 @@
 <?php
-/*
-  id    INTEGER PRIMARY KEY,
-  cat   TEXT NOT NULL,
-  sdesc TEXT NOT NULL,
-  ldesc TEXT NOT NULL,
-  price REAL DEFAULT 0,
-  ctime ? wtf Rasmus, you missed that!
-*/
-
 class items extends db {
   function insert($item) {
     $t = $_SERVER["REQUEST_TIME"];
     try {
-      if(!self::$dbh) $this->connect();
+      if (!self::$dbh) $this->connect();
       $stmt = self::$dbh->prepare("INSERT INTO items 
                                     (id,cat,sdesc,ldesc,price,ctime)
                                    VALUES 
@@ -30,16 +21,13 @@ class items extends db {
 
   function modify($item) {
     try {
-      if(!self::$dbh) $this->connect();
-      $stmt = self::$dbh->prepare("UPDATE items SET 
-                                    cat=:cat, sdesc=:sdesc, 
-                                    ldesc=:ldesc, price=:price 
-                                   WHERE id=:id");
+      if (!self::$dbh) { $this->connect(); }
+      $stmt = self::$dbh->prepare("UPDATE items SET cat=:cat, sdesc=:sdesc, ldesc=:ldesc, price=:price WHERE id=:id");
       $params = array(':cat'  =>$item['cat'],
                       ':sdesc'=>$item['sdesc'],
                       ':ldesc'=>$item['ldesc'],
                       ':price'=>$item['price'],
-                      ':id'=>$item['id']);
+                      ':id'   =>$item['id']);
       $ret = $stmt->execute($params);
     } catch (PDOException $e) {
       $this->fatal_error($e->getMessage());
@@ -49,10 +37,9 @@ class items extends db {
 
   function load($id=-1) {
     $where = '';
-
-    if($id!=-1) $where = "where id=".(int)$id;
+    if ($id != -1) { $where = "where id=" . (int) $id; }
     try {
-      if(!self::$dbh) $this->connect();
+      if (!self::$dbh) { $this->connect(); }
     //self::$dbh->exec("DROP   TABLE IF EXISTS items");
       self::$dbh->exec("CREATE TABLE IF NOT EXISTS items (
 	id    INTEGER PRIMARY KEY,
@@ -70,7 +57,7 @@ class items extends db {
     }
     // Some databases can do this right in the SELECT
     // SQLite can't, so we add a formatted column ourselves
-    foreach($rows as $i=>$row) {
+    foreach ($rows as $i=>$row) {
       $rows[$i]['fprice'] = number_format($row['price'],2);
     }
     return $rows;
