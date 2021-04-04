@@ -11,7 +11,7 @@ class db {
   protected function fatal_error($msg) {
     echo "<pre>Error!: $msg\n";
     $bt = debug_backtrace();
-    foreach($bt as $line) {
+    foreach ($bt as $line) {
       $args = var_export($line['args'], true);
       echo "{$line['function']}($args) at {$line['file']}:{$line['line']}\n";
     }
@@ -23,8 +23,8 @@ class db {
 // load_list takes a text file and turns it into a global array cached by APC
 function load_list($name) {
   global $$name;
-  if(!$$name = apc_fetch($name)) {
-    $$name = explode("\n",trim(file_get_contents($name.'.txt')));
-    apc_store($name,$$name);
+  if (!$$name = apcu_fetch($name)) {
+    $$name = explode("\n", trim(file_get_contents($name.'.txt')));
+    apcu_store($name, $$name);
   }
 }

@@ -4,6 +4,7 @@ function head($title="Default") { ?>
 <html lang="en">
  <head>
   <title><?php echo $title?></title>
+  <link rel="shortcut icon" href="favicon.ico">
   <style type="text/css" media="screen">@import "styles.css";</style>
   <script type="text/javascript" src="yui/yahoo.js"></script>
   <script type="text/javascript" src="yui/dom.js"></script>
